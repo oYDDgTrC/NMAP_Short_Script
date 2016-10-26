@@ -17,14 +17,24 @@ def NmapPingTraceroute (IP_List):
 	for IP in IP_List:
 		print (IP)
 		print (subprocess.call(["nmap", "-sn" , "-PO[1]" , "--traceroute" , IP])) 
+		
+def NmapWolfPortScan (IP_List):
+	for IP in IP_List:
+		print (IP)
+		print ((subprocess.call(["nmap", "-v", "-A", "T5", "-sS", "-sU", "-p0-65535", IP])))
 
 print ("***Nmap Scan***")
 print ("(1) = Ping / Traceroute\n")
+print ("(2) = Wolf Standard Port Scan\n")
 Scan_choice = input("What type of scan would you like to perform? :  \n") 
 
 if Scan_choice == "1":
 	NmapPingTraceroute(string_array)
 	print ("Have a nice day!!!!")
+	
+if Scan_choice == "2":
+	NmapWolfPortScan(string_array)
+	print ("Have a nice day!!")
 else:
 	print ("No choice was made... ")
 	
