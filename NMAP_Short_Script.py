@@ -39,7 +39,7 @@ Scan_choice = input("What type of scan would you like to perform? :  \n")
 if Scan_choice == "1":
 	NmapPingTraceroute(string_array)
 	break
-if Scan_choice == "2":
+elif Scan_choice == "2":
 	NmapFullPortScan(string_array)
 	break
 elif Scan_choice == "3":
