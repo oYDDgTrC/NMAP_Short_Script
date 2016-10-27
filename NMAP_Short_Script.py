@@ -27,7 +27,7 @@ def NmapFullPortScan (IP_List):
 def BaselineLargeNetworks(IP_List):
 	for IP in IP_List:
 		print ("\n" + IP)
-		subprocess.call(["nmap", "-Pn", "-sU" , "--top-ports 500" , "-PO[1]" , IP])
+		subprocess.call(["nmap", "-Pn", "-sU" , "--top-ports=500" , "-PO[1]" , IP])
 		subprocess.call(["nmap", "-Pn", "-sT" , "-PO[1]" , IP])
 
 print ("***Nmap Scan***")
@@ -38,13 +38,10 @@ Scan_choice = input("What type of scan would you like to perform? :  \n")
 
 if Scan_choice == "1":
 	NmapPingTraceroute(string_array)
-	break
 elif Scan_choice == "2":
 	NmapFullPortScan(string_array)
-	break
 elif Scan_choice == "3":
 	BaselineLargeNetworks(string_array)
-	break
 else:
 	print ("No choice was made... ")
 
